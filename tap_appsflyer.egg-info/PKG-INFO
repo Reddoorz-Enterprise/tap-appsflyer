@@ -1,14 +1,11 @@
 Metadata-Version: 2.1
 Name: tap-appsflyer
-Version: 0.0.12
+Version: 0.0.15
 Summary: Singer.io tap for extracting data from the AppsFlyer API
 Home-page: http://singer.io
 Author: Stitch, Inc.
 License: UNKNOWN
+Description: UNKNOWN
 Platform: UNKNOWN
 Classifier: Programming Language :: Python :: 3 :: Only
 Provides-Extra: dev
-License-File: LICENSE
-
-UNKNOWN
-
