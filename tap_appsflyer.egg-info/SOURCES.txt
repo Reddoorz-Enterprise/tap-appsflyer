@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+tap_appsflyer/__init__.py
+tap_appsflyer/client.py
+tap_appsflyer/discover.py
+tap_appsflyer/streams.py
+tap_appsflyer/sync.py
+tap_appsflyer/transform.py
+tap_appsflyer.egg-info/PKG-INFO
+tap_appsflyer.egg-info/SOURCES.txt
+tap_appsflyer.egg-info/dependency_links.txt
+tap_appsflyer.egg-info/entry_points.txt
+tap_appsflyer.egg-info/requires.txt
+tap_appsflyer.egg-info/top_level.txt

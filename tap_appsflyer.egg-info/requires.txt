@@ -1,0 +1,8 @@
+attrs==20.3
+singer-python==5.9.1
+requests==2.25
+backoff==1.8
+
+[dev]
+bottle
+faker
