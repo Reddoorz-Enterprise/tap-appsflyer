@@ -89,6 +89,9 @@ class AppsflyerClient():
         req = requests.Request("GET", url, params=params, headers=headers).prepare()
         LOGGER.info("GET {0} | Date interval: from {1} to {2}".format(
             url,params["from"],params["to"]))
+        LOGGER.info("########################################")
+        LOGGER.info(req.history)
+        LOGGER.info(req.url)
         
         resp = SESSION.send(req)
         resp.status_code
