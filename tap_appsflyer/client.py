@@ -100,8 +100,6 @@ class AppsflyerClient:
                 url, params["from"], params["to"], params["reattr"]
             )
         )
-        LOGGER.info("########################################")
-        LOGGER.info(req.url)
 
         resp = SESSION.send(req)
 
