@@ -364,7 +364,7 @@ STREAMS = {
     "organic_in_app_events": OrganicInAppEvents,
     "uninstalls": Uninstalls,
     "organic_uninstalls": OrganicUninstalls,
-    "partners_by_date": PartnersByDate,
+    # "partners_by_date": PartnersByDate,
     "ad_revenue": AdRevenue,
     "organic_ad_revenue": OrganicAdRevenue,
     "ad_revenue_retargeting": AdRevenueRetargeting,
