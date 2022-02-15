@@ -126,8 +126,6 @@ class Stream:
 
 
 class RawData(Stream):
-    reports_api_max_window = raw_reports_api_max_window
-
     def _get_start_time(self, state, bookmark_format):
         # if start_date is in the config use it, if not, get 90 days ago
         if "start_date" in self.config:
@@ -220,7 +218,91 @@ class Installs(RawData):
     fieldnames = RAW_INSTALL_N_IN_APP_FIELDNAMES
 
 
-class Installs_retargeting(RawData):
+class AdRevenue(RawData):
+    tap_stream_id = "ad_revenue"
+    key_properties = ["event_time", "event_name", "appsflyer_id"]
+    replication_method = "INCREMENTAL"
+    valid_replication_keys = ["event_time"]
+    replication_key = "event_time"
+    report_name = "ad_revenue_raw"
+    report_version = "v5"
+    reattr = False
+    fieldnames = RAW_INSTALL_N_IN_APP_FIELDNAMES
+
+
+class AdRevenueRetargeting(RawData):
+    tap_stream_id = "ad_revenue_retargeting"
+    key_properties = ["event_time", "event_name", "appsflyer_id"]
+    replication_method = "INCREMENTAL"
+    valid_replication_keys = ["event_time"]
+    replication_key = "event_time"
+    report_name = "ad_revenue_raw"
+    report_version = "v5"
+    reattr = True
+    fieldnames = RAW_INSTALL_N_IN_APP_FIELDNAMES
+
+
+class OrganicAdRevenue(RawData):
+    tap_stream_id = "organic_ad_revenue"
+    key_properties = ["event_time", "event_name", "appsflyer_id"]
+    replication_method = "INCREMENTAL"
+    valid_replication_keys = ["event_time"]
+    replication_key = "event_time"
+    report_name = "ad_revenue_organic_raw"
+    report_version = "v5"
+    reattr = False
+    fieldnames = RAW_INSTALL_N_IN_APP_FIELDNAMES
+
+
+class Uninstalls(RawData):
+    tap_stream_id = "uninstalls"
+    key_properties = ["event_time", "event_name", "appsflyer_id"]
+    replication_method = "INCREMENTAL"
+    valid_replication_keys = ["event_time"]
+    replication_key = "event_time"
+    report_name = "uninstall_events_report"
+    report_version = "v5"
+    reattr = False
+    fieldnames = RAW_INSTALL_N_IN_APP_FIELDNAMES
+
+
+class OrganicUninstalls(RawData):
+    tap_stream_id = "organic_uninstalls"
+    key_properties = ["event_time", "event_name", "appsflyer_id"]
+    replication_method = "INCREMENTAL"
+    valid_replication_keys = ["event_time"]
+    replication_key = "event_time"
+    report_name = "organic_uninstall_events_report"
+    report_version = "v5"
+    reattr = False
+    fieldnames = RAW_INSTALL_N_IN_APP_FIELDNAMES
+
+
+class UninstallsRetargeting(RawData):
+    tap_stream_id = "uninstalls_retargeting"
+    key_properties = ["event_time", "event_name", "appsflyer_id"]
+    replication_method = "INCREMENTAL"
+    valid_replication_keys = ["event_time"]
+    replication_key = "event_time"
+    report_name = "uninstall_events_report"
+    report_version = "v5"
+    reattr = True
+    fieldnames = RAW_INSTALL_N_IN_APP_FIELDNAMES
+
+
+class OrganicInstalls(RawData):
+    tap_stream_id = "organic_installs"
+    key_properties = ["event_time", "event_name", "appsflyer_id"]
+    replication_method = "INCREMENTAL"
+    valid_replication_keys = ["event_time"]
+    replication_key = "event_time"
+    report_name = "organic_installs_report"
+    report_version = "v5"
+    reattr = False
+    fieldnames = RAW_INSTALL_N_IN_APP_FIELDNAMES
+
+
+class InstallsRetargeting(RawData):
     tap_stream_id = "installs_retargeting"
     key_properties = ["event_time", "event_name", "appsflyer_id"]
     replication_method = "INCREMENTAL"
@@ -229,6 +311,7 @@ class Installs_retargeting(RawData):
     report_name = "installs_report"
     report_version = "v5"
     reattr = True
+    fieldnames = RAW_INSTALL_N_IN_APP_FIELDNAMES
 
 
 class InAppEvents(RawData):
@@ -240,8 +323,34 @@ class InAppEvents(RawData):
     replication_key = "event_time"
     report_name = "in_app_events_report"
     report_version = "v5"
-    fieldnames = RAW_INSTALL_N_IN_APP_FIELDNAMES
     reattr = False
+    fieldnames = RAW_INSTALL_N_IN_APP_FIELDNAMES
+
+
+class OrganicInAppEvents(RawData):
+
+    tap_stream_id = "organic_in_app_events"
+    key_properties = ["event_time", "event_name", "appsflyer_id"]
+    replication_method = "INCREMENTAL"
+    valid_replication_keys = ["event_time"]
+    replication_key = "event_time"
+    report_name = "organic_in_app_events_report"
+    report_version = "v5"
+    reattr = False
+    fieldnames = RAW_INSTALL_N_IN_APP_FIELDNAMES
+
+
+class InAppEventsRetargeting(RawData):
+
+    tap_stream_id = "in_app_events_retargeting"
+    key_properties = ["event_time", "event_name", "appsflyer_id"]
+    replication_method = "INCREMENTAL"
+    valid_replication_keys = ["event_time"]
+    replication_key = "event_time"
+    report_name = "in_app_events_report"
+    report_version = "v5"
+    reattr = True
+    fieldnames = RAW_INSTALL_N_IN_APP_FIELDNAMES
 
 
 class PartnersByDate(DailyData):
@@ -258,7 +367,16 @@ class PartnersByDate(DailyData):
 
 STREAMS = {
     "installs": Installs,
-    "in_app_events": InAppEvents,
-    "installs_retargeting": Installs_retargeting,
-    "partners_by_date": PartnersByDate,
+    # "installs_retargeting": InstallsRetargeting,
+    # "organic_installs": OrganicInstalls,
+    # "in_app_events": InAppEvents,
+    # "in_app_events_retargeting": InAppEventsRetargeting,
+    # "organic_in_app_events": OrganicInAppEvents,
+    # "uninstalls": Uninstalls,
+    # "uninstalls_retargeting": UninstallsRetargeting,
+    # "organic_uninstalls": OrganicUninstalls,
+    # # "partners_by_date": PartnersByDate,
+    # "ad_revenue": AdRevenue,
+    # "organic_ad_revenue": OrganicAdRevenue,
+    # "ad_revenue_retargeting": AdRevenueRetargeting,
 }
