@@ -278,16 +278,6 @@ class OrganicUninstalls(RawData):
     fieldnames = RAW_INSTALL_N_IN_APP_FIELDNAMES
 
 
-class UninstallsRetargeting(RawData):
-    tap_stream_id = "uninstalls_retargeting"
-    key_properties = ["event_time", "event_name", "appsflyer_id"]
-    replication_method = "INCREMENTAL"
-    valid_replication_keys = ["event_time"]
-    replication_key = "event_time"
-    report_name = "uninstall_events_report"
-    report_version = "v5"
-    reattr = True
-    fieldnames = RAW_INSTALL_N_IN_APP_FIELDNAMES
 
 
 class OrganicInstalls(RawData):
@@ -373,9 +363,8 @@ STREAMS = {
     "in_app_events_retargeting": InAppEventsRetargeting,
     "organic_in_app_events": OrganicInAppEvents,
     "uninstalls": Uninstalls,
-    "uninstalls_retargeting": UninstallsRetargeting,
     "organic_uninstalls": OrganicUninstalls,
-    # "partners_by_date": PartnersByDate,
+    "partners_by_date": PartnersByDate,
     "ad_revenue": AdRevenue,
     "organic_ad_revenue": OrganicAdRevenue,
     "ad_revenue_retargeting": AdRevenueRetargeting,
