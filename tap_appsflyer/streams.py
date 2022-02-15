@@ -366,17 +366,17 @@ class PartnersByDate(DailyData):
 
 
 STREAMS = {
-    # "installs": Installs,
+    "installs": Installs,
     "installs_retargeting": InstallsRetargeting,
     "organic_installs": OrganicInstalls,
-    # "in_app_events": InAppEvents,
-    # "in_app_events_retargeting": InAppEventsRetargeting,
-    # "organic_in_app_events": OrganicInAppEvents,
-    # "uninstalls": Uninstalls,
-    # "uninstalls_retargeting": UninstallsRetargeting,
-    # "organic_uninstalls": OrganicUninstalls,
-    # # "partners_by_date": PartnersByDate,
-    # "ad_revenue": AdRevenue,
-    # "organic_ad_revenue": OrganicAdRevenue,
-    # "ad_revenue_retargeting": AdRevenueRetargeting,
+    "in_app_events": InAppEvents,
+    "in_app_events_retargeting": InAppEventsRetargeting,
+    "organic_in_app_events": OrganicInAppEvents,
+    "uninstalls": Uninstalls,
+    "uninstalls_retargeting": UninstallsRetargeting,
+    "organic_uninstalls": OrganicUninstalls,
+    # "partners_by_date": PartnersByDate,
+    "ad_revenue": AdRevenue,
+    "organic_ad_revenue": OrganicAdRevenue,
+    "ad_revenue_retargeting": AdRevenueRetargeting,
 }
