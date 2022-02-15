@@ -14,8 +14,6 @@ tap_appsflyer.egg-info/dependency_links.txt
 tap_appsflyer.egg-info/entry_points.txt
 tap_appsflyer.egg-info/requires.txt
 tap_appsflyer.egg-info/top_level.txt
-tap_appsflyer/schemas/in_app_events.json
-tap_appsflyer/schemas/in_app_events_retargeting.json
 tap_appsflyer/schemas/installs.json
 tap_appsflyer/schemas/installs_retargeting.json
 tap_appsflyer/schemas/organic_installs.json

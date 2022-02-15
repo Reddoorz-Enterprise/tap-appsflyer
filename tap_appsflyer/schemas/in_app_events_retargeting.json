@@ -342,6 +342,7 @@
     "customer_user_id": {
       "type": [
         "null",
+        "integer",
         "string"
       ]
     },

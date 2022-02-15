@@ -5,7 +5,10 @@ Summary: Singer.io tap for extracting data from the AppsFlyer API
 Home-page: http://singer.io
 Author: Stitch, Inc.
 License: UNKNOWN
-Description: UNKNOWN
 Platform: UNKNOWN
 Classifier: Programming Language :: Python :: 3 :: Only
 Provides-Extra: dev
+License-File: LICENSE
+
+UNKNOWN
+
