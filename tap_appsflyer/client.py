@@ -16,8 +16,13 @@ SESSION = requests.Session()
 API_LIMITS = {
     "in_app_events_report": 31,  # days
     "installs_report": 60,
-    "uninstalls_report": 60,
+    "organic_installs_report": 60,
+    "uninstall_events_report": 60,
+    "organic_uninstall_events_report": 60,
     "partners_by_date_report": 365,
+    "organic_in_app_events_report": 60,
+    "ad_revenue_raw": 60,
+    "ad_revenue_organic_raw": 60,
 }
 
 
