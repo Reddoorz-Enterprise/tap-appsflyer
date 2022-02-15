@@ -366,9 +366,9 @@ class PartnersByDate(DailyData):
 
 
 STREAMS = {
-    "installs": Installs,
-    # "installs_retargeting": InstallsRetargeting,
-    # "organic_installs": OrganicInstalls,
+    # "installs": Installs,
+    "installs_retargeting": InstallsRetargeting,
+    "organic_installs": OrganicInstalls,
     # "in_app_events": InAppEvents,
     # "in_app_events_retargeting": InAppEventsRetargeting,
     # "organic_in_app_events": OrganicInAppEvents,
