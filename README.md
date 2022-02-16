@@ -10,4 +10,15 @@ This tap:
 
 ---
 
-Copyright &copy; 2017 Stitch, Inc.# tap-apps-flyer
+### Reports included 
+* installs
+* installs_retargeting
+* organic_installs
+* in_app_events
+* in_app_events_retargeting
+* organic_in_app_events
+* uninstalls
+* organic_uninstalls
+* ad_revenue
+* organic_ad_revenue
+* ad_revenue_retargeting
