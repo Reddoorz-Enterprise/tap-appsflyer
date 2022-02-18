@@ -8,12 +8,16 @@ LOGGER = singer.get_logger()
 
 def sync(config, state, catalog):  # pylint: disable=too-many-statements
     client = AppsflyerClient(config)
-    report_to_be_loaded = config["reports"]
+    report_to_be_loaded = config.get("reports")
+    if report_to_be_loaded:
+        streams_to_load = report_to_be_loaded
+    else:
+        streams_to_load = list(STREAMS.values())
 
     with Transformer() as transformer:
         for stream in catalog.get_selected_streams(state):
             tap_stream_id = stream.tap_stream_id
-            if tap_stream_id in report_to_be_loaded:
+            if tap_stream_id in streams_to_load:
                 stream_obj = STREAMS[tap_stream_id](client, config)
                 stream_schema = stream.schema.to_dict()
                 stream_metadata = metadata.to_map(stream.metadata)
