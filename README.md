@@ -10,7 +10,7 @@ This tap:
 
 ---
 This is a meltano compatible tap and can be configured as below:
-
+```yaml
 - name: tap-appsflyer
     namespace: tap_appsflyer
     pip_url: git+https://github.com/Atif8Ted/tap-appsflyer.git
@@ -38,7 +38,7 @@ This is a meltano compatible tap and can be configured as below:
       start_date: 2022-02-15T14:30:0Z 
       reports: list of reports that you want to pull
 
-
+```
 ### Reports included 
 * installs
 * installs_retargeting
