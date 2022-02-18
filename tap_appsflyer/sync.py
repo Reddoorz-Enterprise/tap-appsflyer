@@ -12,7 +12,7 @@ def sync(config, state, catalog):  # pylint: disable=too-many-statements
     if report_to_be_loaded:
         streams_to_load = report_to_be_loaded
     else:
-        streams_to_load = list(STREAMS.values())
+        streams_to_load = list(STREAMS.keys())
 
     LOGGER.info(list(STREAMS.values()))
     LOGGER.info(streams_to_load)
