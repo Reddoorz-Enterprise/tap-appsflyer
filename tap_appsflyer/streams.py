@@ -172,7 +172,7 @@ class RawData(Stream):
         start_time = self._get_start_time(state, RAW_BOOKMARK_DATE_FORMAT)
         end_time = self._get_end_time(RAW_BOOKMARK_DATE_FORMAT)
         # To make sure the previous data in milliseconds is handled
-        start_time = start_time - timedelta(minutes=1)
+        # start_time = start_time - timedelta(minutes=1)
         for record in self.client.get_raw_data(
             self.report_name,
             self.report_version,
