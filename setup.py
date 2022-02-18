@@ -6,8 +6,8 @@ setup(
     name='tap-appsflyer',
     version='0.0.15',
     description='Singer.io tap for extracting data from the AppsFlyer API',
-    author='Stitch, Inc.',
-    url='http://singer.io',
+    author='Atif8Ted',
+    url='https://github.com/Atif8Ted/tap-appsflyer',
     classifiers=['Programming Language :: Python :: 3 :: Only'],
     py_modules=['tap_appsflyer'],
     install_requires=[
