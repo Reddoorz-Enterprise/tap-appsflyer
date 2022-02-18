@@ -14,6 +14,9 @@ def sync(config, state, catalog):  # pylint: disable=too-many-statements
     else:
         streams_to_load = list(STREAMS.values())
 
+    LOGGER.info(list(STREAMS.values()))
+    LOGGER.info(streams_to_load)
+
     with Transformer() as transformer:
         for stream in catalog.get_selected_streams(state):
             tap_stream_id = stream.tap_stream_id
