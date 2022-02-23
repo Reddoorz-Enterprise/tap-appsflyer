@@ -169,7 +169,6 @@ class AppsflyerClient:
         req_intervals = self._iterate_x_days_in_a_time(from_datetime, to_datetime)
 
         csv_data_chained = []
-        print(req_intervals)
         for req_interval in req_intervals:
             url = self._get_url(report_name, report_version)
             params = self._parse_raw_api_params(
