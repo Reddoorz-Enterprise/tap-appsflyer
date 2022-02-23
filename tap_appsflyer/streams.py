@@ -1,3 +1,5 @@
+import logging
+
 import singer
 from .transform import *
 from datetime import datetime, timedelta, timezone
@@ -173,6 +175,7 @@ class RawData(Stream):
         end_time = self._get_end_time(RAW_BOOKMARK_DATE_FORMAT)
         # To make sure the previous data in milliseconds is handled
         # start_time = start_time - timedelta(minutes=1)
+        bookmark = start_time
         for record in self.client.get_raw_data(
             self.report_name,
             self.report_version,
@@ -181,16 +184,21 @@ class RawData(Stream):
             self.fieldnames,
             self.reattr,
         ):
-
             transformed_record = transformer.transform(
                 xform(record), stream_schema, stream_metadata
+            )
+
+            bookmark = max(
+                singer.utils.strptime_to_utc(transformed_record["event_time"]),
+                bookmark,
             )
             singer.write_record(
                 self.tap_stream_id, transformed_record, time_extracted=end_time
             )
 
         # Convert to bookmark format
-        end_time_str = datetime.strftime(end_time, RAW_BOOKMARK_DATE_FORMAT)
+        # end_time_str = datetime.strftime(end_time, RAW_BOOKMARK_DATE_FORMAT)
+        end_time_str = datetime.strftime(bookmark, RAW_BOOKMARK_DATE_FORMAT)
         state = singer.write_bookmark(
             state, self.tap_stream_id, self.replication_key, end_time_str
         )
