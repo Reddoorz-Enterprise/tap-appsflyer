@@ -94,7 +94,7 @@ class AppsflyerClient:
             if index == 0:
                 intervals.append({"from": chunk[0], "to": chunk[-1]})
             else:
-                intervals.append({"from": chunked_list[index - 1][0], "to": chunk[-1]})
+                intervals.append({"from": chunked_list[index - 1][-1], "to": chunk[-1]})
 
         return intervals
 
