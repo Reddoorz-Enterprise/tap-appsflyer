@@ -78,6 +78,23 @@ class AppsflyerClient:
 
         return intervals
 
+    def _iterate_x_days_in_a_time(self, from_datetime, to_datetime):
+        from_param, to_param = from_datetime, to_datetime
+        intervals = []
+        chunk_size = 5
+        delta = to_datetime - from_datetime
+        diff_days = delta.days
+        date_list = [
+            (from_param + (timedelta(days=1) * x)) for x in range(0, diff_days + 1)
+        ]
+        chunked_list = [
+            date_list[i: i + chunk_size] for i in range(0, len(date_list), chunk_size)
+        ]
+        for chunk in chunked_list:
+            intervals.append({"from": chunk[0], "to": chunk[-1]})
+
+        return intervals
+
     @backoff.on_exception(
         backoff.expo,
         requests.exceptions.RequestException,
@@ -146,8 +163,8 @@ class AppsflyerClient:
     ):
         # Raw data: https://support.appsflyer.com/hc/en-us/articles/360007530258-Using-Pull-API-raw-data
 
-        req_intervals = self._get_request_intervals(
-            report_name, from_datetime, to_datetime
+        req_intervals = self._iterate_x_days_in_a_time(
+             from_datetime, to_datetime
         )
         csv_data_chained = []
 

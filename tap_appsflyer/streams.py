@@ -202,8 +202,8 @@ class RawData(Stream):
             )
 
         # Convert to bookmark format
-        # end_time_str = datetime.strftime(end_time, RAW_BOOKMARK_DATE_FORMAT)
-        end_time_str = datetime.strftime(bookmark, RAW_BOOKMARK_DATE_FORMAT)
+        end_time_str = datetime.strftime(end_time, RAW_BOOKMARK_DATE_FORMAT)
+        # end_time_str = datetime.strftime(bookmark, RAW_BOOKMARK_DATE_FORMAT)
         state = singer.write_bookmark(
             state, self.tap_stream_id, self.replication_key, end_time_str
         )
