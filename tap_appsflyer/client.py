@@ -166,6 +166,7 @@ class AppsflyerClient:
         req_intervals = self._iterate_x_days_in_a_time(
              from_datetime, to_datetime
         )
+
         csv_data_chained = []
 
         for req_interval in req_intervals:
