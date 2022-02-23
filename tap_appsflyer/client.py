@@ -81,7 +81,7 @@ class AppsflyerClient:
     def _iterate_x_days_in_a_time(self, from_datetime, to_datetime):
         from_param, to_param = from_datetime, to_datetime
         intervals = []
-        chunk_size = 5
+        chunk_size = 10
         delta = to_datetime - from_datetime
         diff_days = delta.days
         date_list = [
