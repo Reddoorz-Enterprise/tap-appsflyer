@@ -175,6 +175,7 @@ class RawData(Stream):
         end_time = self._get_end_time(RAW_BOOKMARK_DATE_FORMAT)
         # To make sure the previous data in milliseconds is handled
         # start_time = start_time - timedelta(minutes=1)
+        bookmark = start_time
         for record in self.client.get_raw_data(
             self.report_name,
             self.report_version,
@@ -183,19 +184,26 @@ class RawData(Stream):
             self.fieldnames,
             self.reattr,
         ):
-            LOGGER.info("Record")
-            LOGGER.info(record)
-
             transformed_record = transformer.transform(
                 xform(record), stream_schema, stream_metadata
             )
-            LOGGER.info(transformed_record)
+            try:
+                if (
+                    singer.utils.strptime_to_utc(transformed_record["event_time"])
+                    > bookmark
+                ):
+                    bookmark = singer.utils.strptime_to_utc(
+                        transformed_record["event_time"]
+                    )
+            except Exception as e:
+                LOGGER.error("Unable to extract date: %s", e)
             singer.write_record(
                 self.tap_stream_id, transformed_record, time_extracted=end_time
             )
 
         # Convert to bookmark format
-        end_time_str = datetime.strftime(end_time, RAW_BOOKMARK_DATE_FORMAT)
+        # end_time_str = datetime.strftime(end_time, RAW_BOOKMARK_DATE_FORMAT)
+        end_time_str = datetime.strftime(bookmark, RAW_BOOKMARK_DATE_FORMAT)
         state = singer.write_bookmark(
             state, self.tap_stream_id, self.replication_key, end_time_str
         )
