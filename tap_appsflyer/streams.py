@@ -1,3 +1,5 @@
+import logging
+
 import singer
 from .transform import *
 from datetime import datetime, timedelta, timezone
@@ -181,10 +183,13 @@ class RawData(Stream):
             self.fieldnames,
             self.reattr,
         ):
+            LOGGER.info("Record")
+            LOGGER.info(record)
 
             transformed_record = transformer.transform(
                 xform(record), stream_schema, stream_metadata
             )
+            LOGGER.info(transformed_record)
             singer.write_record(
                 self.tap_stream_id, transformed_record, time_extracted=end_time
             )
