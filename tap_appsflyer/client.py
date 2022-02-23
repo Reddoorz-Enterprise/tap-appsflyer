@@ -88,14 +88,13 @@ class AppsflyerClient:
             (from_param + (timedelta(days=1) * x)) for x in range(0, diff_days + 1)
         ]
         chunked_list = [
-            date_list[i: i + chunk_size]
-            for i in range(0, len(date_list), chunk_size)
+            date_list[i : i + chunk_size] for i in range(0, len(date_list), chunk_size)
         ]
         for index, chunk in enumerate(chunked_list):
             if index == 0:
                 intervals.append({"from": chunk[0], "to": chunk[-1]})
             else:
-                intervals.append({"from": chunked_list[index - 1], "to": chunk[-1]})
+                intervals.append({"from": chunked_list[index - 1][0], "to": chunk[-1]})
 
         return intervals
 
@@ -170,7 +169,7 @@ class AppsflyerClient:
         req_intervals = self._iterate_x_days_in_a_time(from_datetime, to_datetime)
 
         csv_data_chained = []
-
+        print(req_intervals)
         for req_interval in req_intervals:
             url = self._get_url(report_name, report_version)
             params = self._parse_raw_api_params(
