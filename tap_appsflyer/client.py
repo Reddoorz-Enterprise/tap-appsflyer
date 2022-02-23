@@ -88,10 +88,14 @@ class AppsflyerClient:
             (from_param + (timedelta(days=1) * x)) for x in range(0, diff_days + 1)
         ]
         chunked_list = [
-            date_list[i-1: i + chunk_size] for i in range(0, len(date_list), chunk_size)
+            date_list[i - 1 : i + chunk_size]
+            for i in range(0, len(date_list), chunk_size)
         ]
-        for chunk in chunked_list:
-            intervals.append({"from": chunk[0], "to": chunk[-1]})
+        for index, chunk in enumerate(chunked_list):
+            if index == 0:
+                intervals.append({"from": chunk[0], "to": chunk[-1]})
+            else:
+                intervals.append({"from": chunked_list[index - 1], "to": chunk[-1]})
 
         return intervals
 
@@ -163,9 +167,7 @@ class AppsflyerClient:
     ):
         # Raw data: https://support.appsflyer.com/hc/en-us/articles/360007530258-Using-Pull-API-raw-data
 
-        req_intervals = self._iterate_x_days_in_a_time(
-             from_datetime, to_datetime
-        )
+        req_intervals = self._iterate_x_days_in_a_time(from_datetime, to_datetime)
 
         csv_data_chained = []
 
