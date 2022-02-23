@@ -88,7 +88,7 @@ class AppsflyerClient:
             (from_param + (timedelta(days=1) * x)) for x in range(0, diff_days + 1)
         ]
         chunked_list = [
-            date_list[i: i + chunk_size] for i in range(0, len(date_list), chunk_size)
+            date_list[i-1: i + chunk_size] for i in range(0, len(date_list), chunk_size)
         ]
         for chunk in chunked_list:
             intervals.append({"from": chunk[0], "to": chunk[-1]})
