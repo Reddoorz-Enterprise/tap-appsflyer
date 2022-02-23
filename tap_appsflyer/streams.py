@@ -187,16 +187,16 @@ class RawData(Stream):
             transformed_record = transformer.transform(
                 xform(record), stream_schema, stream_metadata
             )
-            try:
-                if (
-                    singer.utils.strptime_to_utc(transformed_record["event_time"])
-                    > bookmark
-                ):
-                    bookmark = singer.utils.strptime_to_utc(
-                        transformed_record["event_time"]
-                    )
-            except Exception as e:
-                LOGGER.error("Unable to extract date: %s", e)
+            # try:
+            #     if (
+            #         singer.utils.strptime_to_utc(transformed_record["event_time"])
+            #         > bookmark
+            #     ):
+            #         bookmark = singer.utils.strptime_to_utc(
+            #             transformed_record["event_time"]
+            #         )
+            # except Exception as e:
+            #     LOGGER.error("Unable to extract date: %s", e)
             singer.write_record(
                 self.tap_stream_id, transformed_record, time_extracted=end_time
             )
