@@ -14,7 +14,7 @@ LOGGER = singer.get_logger()
 SESSION = requests.Session()
 
 API_LIMITS = {
-    "in_app_events_report": 31,  # days
+    "in_app_events_report": 60,  # days
     "installs_report": 60,
     "organic_installs_report": 60,
     "uninstall_events_report": 60,
