@@ -23,6 +23,7 @@ API_LIMITS = {
     "organic_in_app_events_report": 60,
     "ad_revenue_raw": 60,
     "ad_revenue_organic_raw": 60,
+    "fraud-post-inapps": 60,
 }
 
 
