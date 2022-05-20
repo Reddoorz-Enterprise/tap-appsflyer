@@ -362,6 +362,18 @@ class PartnersByDate(DailyData):
     fieldnames = PARTNERS_FIELDNAMES
 
 
+class PostAttributionInAppEvents(RawData):
+    tap_stream_id = "post_attribution_in_app_events"
+    key_properties = ["event_time", "event_name", "appsflyer_id"]
+    replication_method = "INCREMENTAL"
+    valid_replication_keys = ["event_time"]
+    replication_key = "event_time"
+    report_name = "fraud-post-inapps"
+    report_version = "v5"
+    reattr = False
+    fieldnames = RAW_INSTALL_N_IN_APP_FIELDNAMES
+
+
 STREAMS = {
     "installs": Installs,
     "installs_retargeting": InstallsRetargeting,
@@ -375,4 +387,5 @@ STREAMS = {
     "ad_revenue": AdRevenue,
     "organic_ad_revenue": OrganicAdRevenue,
     "ad_revenue_retargeting": AdRevenueRetargeting,
+    "post_attribution_in_app_events": PostAttributionInAppEvents,
 }
