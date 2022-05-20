@@ -158,6 +158,7 @@ class AppsflyerClient:
                 req_interval["from"], req_interval["to"]
             )
             params["reattr"] = reattr
+            params["maximum_rows"] = "1000000"
 
             request_data = self._request(url, params)
 
