@@ -166,7 +166,7 @@ class AppsflyerClient:
             params["maximum_rows"] = "1000000"
 
             # events = self.config.get("events")
-            if event_name_filter:
+            if event_name_filter != "":
                 params["event_name"] = event_name_filter
 
             request_data = self._request(url, params)
