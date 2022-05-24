@@ -183,6 +183,7 @@ class RawData(Stream):
             end_time,
             self.fieldnames,
             self.reattr,
+            self.event_name,
         ):
             transformed_record = transformer.transform(
                 xform(record), stream_schema, stream_metadata
@@ -224,6 +225,7 @@ class Installs(RawData):
     report_name = "installs_report"
     report_version = "v5"
     reattr = False
+    event_name = None
     fieldnames = RAW_INSTALL_N_IN_APP_FIELDNAMES
 
 
@@ -236,6 +238,7 @@ class AdRevenue(RawData):
     report_name = "ad_revenue_raw"
     report_version = "v5"
     reattr = False
+    event_name = None
     fieldnames = RAW_INSTALL_N_IN_APP_FIELDNAMES
 
 
@@ -248,6 +251,7 @@ class AdRevenueRetargeting(RawData):
     report_name = "ad_revenue_raw"
     report_version = "v5"
     reattr = True
+    event_name = None
     fieldnames = RAW_INSTALL_N_IN_APP_FIELDNAMES
 
 
@@ -260,6 +264,7 @@ class OrganicAdRevenue(RawData):
     report_name = "ad_revenue_organic_raw"
     report_version = "v5"
     reattr = False
+    event_name = None
     fieldnames = RAW_INSTALL_N_IN_APP_FIELDNAMES
 
 
@@ -272,6 +277,7 @@ class Uninstalls(RawData):
     report_name = "uninstall_events_report"
     report_version = "v5"
     reattr = False
+    event_name = None
     fieldnames = RAW_INSTALL_N_IN_APP_FIELDNAMES
 
 
@@ -284,6 +290,7 @@ class OrganicUninstalls(RawData):
     report_name = "organic_uninstall_events_report"
     report_version = "v5"
     reattr = False
+    event_name = None
     fieldnames = RAW_INSTALL_N_IN_APP_FIELDNAMES
 
 
@@ -296,6 +303,7 @@ class OrganicInstalls(RawData):
     report_name = "organic_installs_report"
     report_version = "v5"
     reattr = False
+    event_name = None
     fieldnames = RAW_INSTALL_N_IN_APP_FIELDNAMES
 
 
@@ -308,6 +316,7 @@ class InstallsRetargeting(RawData):
     report_name = "installs_report"
     report_version = "v5"
     reattr = True
+    event_name = None
     fieldnames = RAW_INSTALL_N_IN_APP_FIELDNAMES
 
 
@@ -321,6 +330,7 @@ class InAppEvents(RawData):
     report_name = "in_app_events_report"
     report_version = "v5"
     reattr = False
+    event_name = "Hotelpage_assistoption_selected,af_purchase_Sans,First Booking,Af_purchase_reddoorz_premium,Af_purchase_RBR,get_callback_clicked,Af_purchase_Apt,Hotel Details Visited,RedClub purchased,help_selected,af_purchase_reddoorz_hostel,Payment method Clicked,Af_purchase_Sunerra,Homescreen Visited,af_purchase,af_purchase_reddoorz_premium,Af_purchase_reddoorz,Listing Page Visited,af_purchase_Sunerra,Booking Confirmed,af_purchase_reddoorz_verified,af_purchase_Koolkost,Af_purchase_reddoorz_verified,contactdetails_done_clicked,af_purchase_Collections,af_login,propertydetail_maps_clicked,help_clicked,af_purchase_RBR,Af_purchase_Urbanview,af_list_view,af_purchase_Apt,propertydetail_BookNow_clicked,af_complete_registration,Booking Voucher Visit,af_purchase_Urbanview,af_purchase_reddoorz_plus,af_travel_booking,Af_purchase_Sans,Af_purchase_reddoorz_hostel,propertydetail_contactowner_clicked,af_purchase_reddoorz,Af_purchase_reddoorz_plus,Booking Summary Visited,propertydetail_schedule_visit_clicked,Visitscheduledpage_visited,Af_purchase_Koolkost,Homescreen visited"
     fieldnames = RAW_INSTALL_N_IN_APP_FIELDNAMES
 
 
@@ -334,6 +344,7 @@ class OrganicInAppEvents(RawData):
     report_name = "organic_in_app_events_report"
     report_version = "v5"
     reattr = False
+    event_name = "Hotelpage_assistoption_selected,af_purchase_Sans,First Booking,Af_purchase_reddoorz_premium,Af_purchase_RBR,get_callback_clicked,Af_purchase_Apt,Hotel Details Visited,RedClub purchased,help_selected,af_purchase_reddoorz_hostel,Payment method Clicked,Af_purchase_Sunerra,Homescreen Visited,af_purchase,af_purchase_reddoorz_premium,Af_purchase_reddoorz,Listing Page Visited,af_purchase_Sunerra,Booking Confirmed,af_purchase_reddoorz_verified,af_purchase_Koolkost,Af_purchase_reddoorz_verified,contactdetails_done_clicked,af_purchase_Collections,af_login,propertydetail_maps_clicked,help_clicked,af_purchase_RBR,Af_purchase_Urbanview,af_list_view,af_purchase_Apt,propertydetail_BookNow_clicked,af_complete_registration,Booking Voucher Visit,af_purchase_Urbanview,af_purchase_reddoorz_plus,af_travel_booking,Af_purchase_Sans,Af_purchase_reddoorz_hostel,propertydetail_contactowner_clicked,af_purchase_reddoorz,Af_purchase_reddoorz_plus,Booking Summary Visited,propertydetail_schedule_visit_clicked,Visitscheduledpage_visited,Af_purchase_Koolkost,Homescreen visited"
     fieldnames = RAW_INSTALL_N_IN_APP_FIELDNAMES
 
 
@@ -347,6 +358,7 @@ class InAppEventsRetargeting(RawData):
     report_name = "in_app_events_report"
     report_version = "v5"
     reattr = True
+    event_name = "Hotelpage_assistoption_selected,af_purchase_Sans,First Booking,Af_purchase_reddoorz_premium,Af_purchase_RBR,get_callback_clicked,Af_purchase_Apt,Hotel Details Visited,RedClub purchased,help_selected,af_purchase_reddoorz_hostel,Payment method Clicked,Af_purchase_Sunerra,Homescreen Visited,af_purchase,af_purchase_reddoorz_premium,Af_purchase_reddoorz,Listing Page Visited,af_purchase_Sunerra,Booking Confirmed,af_purchase_reddoorz_verified,af_purchase_Koolkost,Af_purchase_reddoorz_verified,contactdetails_done_clicked,af_purchase_Collections,af_login,propertydetail_maps_clicked,help_clicked,af_purchase_RBR,Af_purchase_Urbanview,af_list_view,af_purchase_Apt,propertydetail_BookNow_clicked,af_complete_registration,Booking Voucher Visit,af_purchase_Urbanview,af_purchase_reddoorz_plus,af_travel_booking,Af_purchase_Sans,Af_purchase_reddoorz_hostel,propertydetail_contactowner_clicked,af_purchase_reddoorz,Af_purchase_reddoorz_plus,Booking Summary Visited,propertydetail_schedule_visit_clicked,Visitscheduledpage_visited,Af_purchase_Koolkost,Homescreen visited"
     fieldnames = RAW_INSTALL_N_IN_APP_FIELDNAMES
 
 
@@ -359,6 +371,7 @@ class PartnersByDate(DailyData):
     report_name = "partners_by_date_report"
     report_version = "v5"
     reattr = False
+    event_name = None
     fieldnames = PARTNERS_FIELDNAMES
 
 
@@ -371,6 +384,7 @@ class PostAttributionInAppEvents(RawData):
     report_name = "fraud-post-inapps"
     report_version = "v5"
     reattr = False
+    event_name = None
     fieldnames = RAW_INSTALL_N_IN_APP_FIELDNAMES
 
 
