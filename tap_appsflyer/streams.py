@@ -225,7 +225,7 @@ class Installs(RawData):
     report_name = "installs_report"
     report_version = "v5"
     reattr = False
-    event_name = None
+    event_name = ""
     fieldnames = RAW_INSTALL_N_IN_APP_FIELDNAMES
 
 
@@ -238,7 +238,7 @@ class AdRevenue(RawData):
     report_name = "ad_revenue_raw"
     report_version = "v5"
     reattr = False
-    event_name = None
+    event_name = ""
     fieldnames = RAW_INSTALL_N_IN_APP_FIELDNAMES
 
 
@@ -251,7 +251,7 @@ class AdRevenueRetargeting(RawData):
     report_name = "ad_revenue_raw"
     report_version = "v5"
     reattr = True
-    event_name = None
+    event_name = ""
     fieldnames = RAW_INSTALL_N_IN_APP_FIELDNAMES
 
 
@@ -264,7 +264,7 @@ class OrganicAdRevenue(RawData):
     report_name = "ad_revenue_organic_raw"
     report_version = "v5"
     reattr = False
-    event_name = None
+    event_name = ""
     fieldnames = RAW_INSTALL_N_IN_APP_FIELDNAMES
 
 
@@ -277,7 +277,7 @@ class Uninstalls(RawData):
     report_name = "uninstall_events_report"
     report_version = "v5"
     reattr = False
-    event_name = None
+    event_name = ""
     fieldnames = RAW_INSTALL_N_IN_APP_FIELDNAMES
 
 
@@ -290,7 +290,7 @@ class OrganicUninstalls(RawData):
     report_name = "organic_uninstall_events_report"
     report_version = "v5"
     reattr = False
-    event_name = None
+    event_name = ""
     fieldnames = RAW_INSTALL_N_IN_APP_FIELDNAMES
 
 
@@ -303,7 +303,7 @@ class OrganicInstalls(RawData):
     report_name = "organic_installs_report"
     report_version = "v5"
     reattr = False
-    event_name = None
+    event_name = ""
     fieldnames = RAW_INSTALL_N_IN_APP_FIELDNAMES
 
 
@@ -316,7 +316,7 @@ class InstallsRetargeting(RawData):
     report_name = "installs_report"
     report_version = "v5"
     reattr = True
-    event_name = None
+    event_name = ""
     fieldnames = RAW_INSTALL_N_IN_APP_FIELDNAMES
 
 
@@ -371,7 +371,7 @@ class PartnersByDate(DailyData):
     report_name = "partners_by_date_report"
     report_version = "v5"
     reattr = False
-    event_name = None
+    event_name = ""
     fieldnames = PARTNERS_FIELDNAMES
 
 
@@ -384,7 +384,7 @@ class PostAttributionInAppEvents(RawData):
     report_name = "fraud-post-inapps"
     report_version = "v5"
     reattr = False
-    event_name = None
+    event_name = ""
     fieldnames = RAW_INSTALL_N_IN_APP_FIELDNAMES
 
 
